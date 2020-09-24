@@ -50,4 +50,22 @@ describe('Tweet Action', () => {
     expect(addNewTweetAction(newTweet))
       .toEqual(expectedAction);
   });
+
+  it('should create ADD_TWEETS when adding has been done', async () => {
+    fetchMock.postOnce(EndpointAPI.addNewTweet, {
+      body: { message: 'Tweet Added!' },
+    });
+
+    const expectedActions = [
+      {
+        type: TweetAction.ADD_TWEETS,
+        newTweet: mockNewTweet,
+      },
+    ];
+
+    const store = mockStore({ tweets: [] });
+
+    await store.dispatch(handleAddData(mockNewTweet));
+    expect(store.getActions()).toEqual(expectedActions);
+  });
 });
