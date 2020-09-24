@@ -6,7 +6,7 @@ import {
   handleInitialData,
   receiveTweetsAction,
   TweetAction,
-} from '../../../../lib/tweets/redux/action';
+} from '../../../../lib/tweets/redux/actions';
 import { mockedTweets } from '../../__mocks__/tweet';
 import { EndpointAPI } from '../../../../lib/shared';
 
@@ -14,7 +14,7 @@ const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
 describe('Tweet Action', () => {
-  it('should create an action to receive tweet correctly', () => {
+  it('should create an actions to receive tweet correctly', () => {
     const tweets: Array<Tweet> = mockedTweets;
 
     const expectedAction = {

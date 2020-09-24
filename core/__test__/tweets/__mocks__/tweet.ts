@@ -25,4 +25,15 @@ const mockedTweets: Array<Tweet> = [
   },
 ];
 
-export { mockedTweets };
+const mockedTweet: Tweet = {
+  id: 'tw-4n5pxq24kpiob12og9',
+  tweet: 'lorem ipsum dolor sit amet',
+  date: '2020-09-20 18:20:00',
+  author: 'usr-nbw2s2nkks9wmmw2kk',
+  retweets: ['usr-m9wwklks1nmjalsmcu1'],
+  likes: ['usr-nbw2s2nkks9wmmw2kk', 'usr-m9wwklks1nmjalsmcu1'],
+  isDeleted: false,
+  replyTo: null,
+};
+
+export { mockedTweets, mockedTweet };
