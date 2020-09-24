@@ -3,7 +3,7 @@ import fetchMock from 'fetch-mock';
 import thunk from 'redux-thunk';
 import { Tweet } from '../../../../lib/tweets/entities';
 import {
-  addNewTweetAction,
+  addNewTweetAction, handleAddTweet,
   handleInitialTweets,
   receiveTweetsAction,
   TweetAction,
@@ -65,7 +65,8 @@ describe('Tweet Action', () => {
 
     const store = mockStore({ tweets: [] });
 
-    await store.dispatch(handleAddData(mockNewTweet));
+    // @ts-ignore
+    await store.dispatch(handleAddTweet(mockNewTweet));
     expect(store.getActions()).toEqual(expectedActions);
   });
 });

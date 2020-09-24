@@ -2,6 +2,7 @@ import { Action, ActionCreator } from 'redux';
 import { GetterServiceInteractor } from '../../useCase';
 import { TweetService } from '../../services';
 import { NewTweet, Tweet } from '../../entities';
+import { AddingServiceInteractor } from '../../useCase/AddingServiceInteractor';
 
 const TweetAction = {
   RECEIVE_TWEETS: 'RECEIVE_TWEETS',
@@ -29,6 +30,17 @@ const handleInitialTweets = () => async (dispatch: any) => {
   dispatch(receiveTweetsAction(tweets));
 };
 
+const handleAddTweet = (newTweet: NewTweet) => async (dispatch: any) => {
+  const services = new TweetService();
+  const interactor = new AddingServiceInteractor(services);
+
+  const status = await interactor.addNewTweet(newTweet);
+  if (status !== 200) {
+    return;
+  }
+  dispatch(addNewTweetAction(newTweet));
+};
+
 export {
-  TweetAction, receiveTweetsAction, handleInitialTweets, addNewTweetAction,
+  TweetAction, receiveTweetsAction, handleInitialTweets, addNewTweetAction, handleAddTweet,
 };
