@@ -1,4 +1,4 @@
-import Tweet from '../../../../lib/shared/ValueObject/Tweet';
+import Tweet from '../../../lib/tweets/entities/Tweet';
 
 const mockedTweets: Array<Tweet> = [
   {

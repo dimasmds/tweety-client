@@ -1,0 +1,4 @@
+export const BASE_URL = 'https://vast-falls-98498.herokuapp.com';
+export const EndpointAPI = {
+  getAllTweets: `${BASE_URL}/tweets`,
+};

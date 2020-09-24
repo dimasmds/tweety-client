@@ -1,4 +1,4 @@
-interface Tweet {
+export interface Tweet {
   id: string
   tweet: string
   date: string
@@ -8,5 +8,3 @@ interface Tweet {
   isDeleted: boolean,
   replyTo: string | null
 }
-
-export default Tweet;
