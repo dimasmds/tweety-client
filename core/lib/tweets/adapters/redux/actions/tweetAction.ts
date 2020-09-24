@@ -1,8 +1,8 @@
 import { Action, ActionCreator } from 'redux';
-import { GetterServiceInteractor } from '../../useCase';
-import { TweetService } from '../../services';
-import { NewTweet, Tweet } from '../../entities';
-import { AddingServiceInteractor } from '../../useCase/AddingServiceInteractor';
+import { GetterServiceInteractor } from '../../../useCase';
+import { TweetService } from '../../../services';
+import { NewTweet, Tweet } from '../../../entities';
+import { AddingServiceInteractor } from '../../../useCase/AddingServiceInteractor';
 
 const TweetAction = {
   RECEIVE_TWEETS: 'RECEIVE_TWEETS',

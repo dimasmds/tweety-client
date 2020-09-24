@@ -1,15 +1,15 @@
 import configureMockStore from 'redux-mock-store';
 import fetchMock from 'fetch-mock';
 import thunk from 'redux-thunk';
-import { Tweet } from '../../../../lib/tweets/entities';
+import { Tweet } from '../../../../../lib/tweets/entities';
 import {
   addNewTweetAction, handleAddTweet,
   handleInitialTweets,
   receiveTweetsAction,
   TweetAction,
-} from '../../../../lib/tweets/redux/actions';
-import { mockedTweets, mockNewTweet } from '../../__mocks__/tweet';
-import { EndpointAPI } from '../../../../lib/shared';
+} from '../../../../../lib/tweets/adapters/redux/actions';
+import { mockedTweets, mockNewTweet } from '../../../__mocks__/tweet';
+import { EndpointAPI } from '../../../../../lib/shared';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);

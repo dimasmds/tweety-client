@@ -1,4 +1,4 @@
-import { Tweet } from '../../entities';
+import { Tweet } from '../../../entities';
 import { TweetAction } from '../actions';
 
 export const tweetsReducers = (state: Array<Tweet> = [], action: any) => {
