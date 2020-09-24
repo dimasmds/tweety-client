@@ -21,7 +21,7 @@ const addNewTweetAction: ActionCreator<Action> = (newTweet: NewTweet) => ({
   newTweet,
 });
 
-const handleInitialData = () => async (dispatch: any) => {
+const handleInitialTweets = () => async (dispatch: any) => {
   const services = new TweetService();
   const interactor = new GetterServiceInteractor(services);
 
@@ -30,5 +30,5 @@ const handleInitialData = () => async (dispatch: any) => {
 };
 
 export {
-  TweetAction, receiveTweetsAction, handleInitialData, addNewTweetAction,
+  TweetAction, receiveTweetsAction, handleInitialTweets, addNewTweetAction,
 };

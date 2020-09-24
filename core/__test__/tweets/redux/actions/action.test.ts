@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 import { Tweet } from '../../../../lib/tweets/entities';
 import {
   addNewTweetAction,
-  handleInitialData,
+  handleInitialTweets,
   receiveTweetsAction,
   TweetAction,
 } from '../../../../lib/tweets/redux/actions';
@@ -35,7 +35,7 @@ describe('Tweet Action', () => {
     const store = mockStore({ tweets: [] });
 
     // @ts-ignore
-    await store.dispatch(handleInitialData());
+    await store.dispatch(handleInitialTweets());
     expect(store.getActions()).toEqual(expectedActions);
   });
 
