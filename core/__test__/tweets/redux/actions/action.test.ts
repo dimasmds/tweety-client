@@ -7,7 +7,7 @@ import {
   receiveTweetsAction,
   TweetAction,
 } from '../../../../lib/tweets/redux/actions';
-import { mockedTweets } from '../../__mocks__/tweet';
+import { mockedTweets, mockNewTweet } from '../../__mocks__/tweet';
 import { EndpointAPI } from '../../../../lib/shared';
 
 const middlewares = [thunk];
@@ -36,5 +36,17 @@ describe('Tweet Action', () => {
     // @ts-ignore
     await store.dispatch(handleInitialData());
     expect(store.getActions()).toEqual(expectedActions);
+  });
+
+  it('should create an action to add tweet correctly', () => {
+    const newTweet = mockNewTweet;
+
+    const expectedAction = {
+      type: TweetAction.ADD_TWEETS,
+      newTweet,
+    };
+
+    expect(addNewTweetAction(newTweet))
+      .toEqual(expectedAction);
   });
 });

@@ -1,4 +1,4 @@
-import { Tweet } from '../../../lib/tweets/entities';
+import { Tweet, NewTweet } from '../../../lib/tweets/entities';
 
 const mockedTweets: Array<Tweet> = [
   {
@@ -32,4 +32,9 @@ const mockedTweet: Tweet = {
   isDeleted: false,
 };
 
-export { mockedTweets, mockedTweet };
+const mockNewTweet: NewTweet = {
+  author: 'usr-nbw2s22smm9m34',
+  tweet: 'Aku member JKT48',
+};
+
+export { mockedTweets, mockedTweet, mockNewTweet };
