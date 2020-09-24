@@ -1,4 +1,4 @@
-import { Tweet } from '../../../lib/tweets/entities/Tweet';
+import { Tweet } from '../../../lib/tweets/entities';
 
 const mockedTweets: Array<Tweet> = [
   {
