@@ -3,6 +3,7 @@ import fetchMock from 'fetch-mock';
 import thunk from 'redux-thunk';
 import { Tweet } from '../../../../lib/tweets/entities';
 import {
+  addNewTweetAction,
   handleInitialData,
   receiveTweetsAction,
   TweetAction,
