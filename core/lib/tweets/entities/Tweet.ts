@@ -3,8 +3,8 @@ export interface Tweet {
   tweet: string
   date: string
   author: string
-  retweets: Array<string> | null
-  likes: Array<string> | null
+  retweets?: Array<string>
+  likes?: Array<string>
   isDeleted: boolean,
-  replyTo: string | null
+  replyTo?: string
 }
