@@ -1,7 +1,7 @@
 import { User } from '../../../entities';
 import { setLoadingAction, setReadyAction } from '../../../../_shared/loading/adapters/redux';
-import { UserService } from '../../../services/UserService';
-import { GetterServiceInteractor } from '../../../useCase';
+import { UserService } from '../../../services';
+import { UserGetterServiceInteractor } from '../../../useCase';
 
 export const receiveUsersAction = (users: Array<User>) => ({
   type: 'RECEIVE_USERS',
@@ -11,7 +11,7 @@ export const receiveUsersAction = (users: Array<User>) => ({
 export const handleInitialUsers = () => async (dispatch: any) => {
   dispatch(setLoadingAction());
   const service = new UserService();
-  const interactor = new GetterServiceInteractor(service);
+  const interactor = new UserGetterServiceInteractor(service);
 
   const users = await interactor.getAllUsers();
   dispatch(receiveUsersAction(users));

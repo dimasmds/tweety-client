@@ -1,7 +1,7 @@
-import { GetterServiceInteractor } from '../../../useCase';
+import { TweetGetterServiceInteractor } from '../../../useCase';
 import { TweetService } from '../../../services';
 import { NewTweet, Tweet } from '../../../entities';
-import { AddingServiceInteractor } from '../../../useCase/AddingServiceInteractor';
+import { TweetAddingServiceInteractor } from '../../../useCase/TweetAddingServiceInteractor';
 import { setLoadingAction, setReadyAction } from '../../../../_shared/loading/adapters/redux';
 
 const TweetAction = {
@@ -25,7 +25,7 @@ const addNewTweetAction = (newTweet: NewTweet) => ({
 const handleInitialTweets = () => async (dispatch: any) => {
   dispatch(setLoadingAction());
   const services = new TweetService();
-  const interactor = new GetterServiceInteractor(services);
+  const interactor = new TweetGetterServiceInteractor(services);
 
   const tweets = await interactor.getAllTweets();
   dispatch(receiveTweetsAction(tweets));
@@ -35,7 +35,7 @@ const handleInitialTweets = () => async (dispatch: any) => {
 const handleAddTweet = (newTweet: NewTweet) => async (dispatch: any) => {
   dispatch(setLoadingAction());
   const services = new TweetService();
-  const interactor = new AddingServiceInteractor(services);
+  const interactor = new TweetAddingServiceInteractor(services);
 
   const status = await interactor.addNewTweet(newTweet);
   if (status !== 200) {

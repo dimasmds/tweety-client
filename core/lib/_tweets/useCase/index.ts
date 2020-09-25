@@ -1,3 +1,3 @@
-import { GetterServiceInteractor, GetterService } from './GetterServiceInteractor';
+import { TweetGetterServiceInteractor, TweetGetterService } from './TweetGetterServiceInteractor';
 
-export { GetterService, GetterServiceInteractor };
+export { TweetGetterService, TweetGetterServiceInteractor };

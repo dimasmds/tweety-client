@@ -1,13 +1,13 @@
 import { User } from '../entities';
 
-export interface GetterService {
+export interface UserGetterService {
   getAllUsers: () => Promise<Array<User>>
 }
 
-export class GetterServiceInteractor {
-  private _getterService: GetterService;
+export class UserGetterServiceInteractor {
+  private _getterService: UserGetterService;
 
-  constructor(getterService: GetterService) {
+  constructor(getterService: UserGetterService) {
     this._getterService = getterService;
   }
 

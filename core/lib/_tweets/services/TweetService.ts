@@ -1,9 +1,9 @@
-import { GetterService } from '../useCase';
+import { TweetGetterService } from '../useCase';
 import { NewTweet, Tweet } from '../entities';
 import { EndpointAPI } from '../../config';
-import { AddingService } from '../useCase/AddingServiceInteractor';
+import { TweetAddingService } from '../useCase/TweetAddingServiceInteractor';
 
-export class TweetService implements GetterService, AddingService {
+export class TweetService implements TweetGetterService, TweetAddingService {
   async getAllTweets(): Promise<Array<Tweet>> {
     try {
       const response = await fetch(EndpointAPI.getAllTweets);

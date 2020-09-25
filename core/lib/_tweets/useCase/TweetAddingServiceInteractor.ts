@@ -1,14 +1,14 @@
 import { NewTweet } from '../entities';
 
-export interface AddingService {
+export interface TweetAddingService {
   // eslint-disable-next-line no-unused-vars
   addNewTweet: (newTweet: NewTweet) => Promise<any>
 }
 
-export class AddingServiceInteractor {
-  private _addingService: AddingService;
+export class TweetAddingServiceInteractor {
+  private _addingService: TweetAddingService;
 
-  constructor(service: AddingService) {
+  constructor(service: TweetAddingService) {
     this._addingService = service;
   }
 

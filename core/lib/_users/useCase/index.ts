@@ -1,1 +1,1 @@
-export * from './GetterServiceInteractor';
+export * from './UserGetterServiceInteractor';
