@@ -1,4 +1,3 @@
-import { Action, ActionCreator } from 'redux';
 import { GetterServiceInteractor } from '../../../useCase';
 import { TweetService } from '../../../services';
 import { NewTweet, Tweet } from '../../../entities';
@@ -12,12 +11,12 @@ const TweetAction = {
   DELETE_TWEET: 'DELETE_TWEET',
 };
 
-const receiveTweetsAction: ActionCreator<Action> = (tweets: Array<Tweet>) => ({
+const receiveTweetsAction = (tweets: Array<Tweet>) => ({
   type: TweetAction.RECEIVE_TWEETS,
   tweets,
 });
 
-const addNewTweetAction: ActionCreator<Action> = (newTweet: NewTweet) => ({
+const addNewTweetAction = (newTweet: NewTweet) => ({
   type: TweetAction.ADD_TWEETS,
   newTweet,
 });
