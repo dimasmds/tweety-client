@@ -1,4 +1,5 @@
 import { AuthenticationAction } from '../../../../../lib/_authentication/adapters/redux/actions';
+import { authReducer } from '../../../../../lib/_authentication/adapters/redux/reducers';
 
 describe('Auth Reducer', () => {
   it('should return have default value when not set', () => {
@@ -9,6 +10,6 @@ describe('Auth Reducer', () => {
     expect(authReducer(null, {
       type: AuthenticationAction.SET_AUTH,
       id: 'asdfghkl',
-    })).toEqual('asdfjkl');
+    })).toEqual('asdfghkl');
   });
 });
