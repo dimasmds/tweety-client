@@ -1,8 +1,8 @@
-import { LitElement } from 'lit-element';
 import { navigator } from 'lit-element-router';
 import { html } from 'lit-html';
+import CommonElement from '../__base__/CommonElement';
 
-class AppLink extends navigator(LitElement) {
+class AppLink extends navigator(CommonElement) {
   static get properties() {
     return {
       href: { type: String },
