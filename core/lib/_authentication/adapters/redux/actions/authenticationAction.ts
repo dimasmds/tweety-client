@@ -7,7 +7,7 @@ export const AuthenticationAction = {
   LOG_IN: 'LOG_IN',
 };
 
-export const logInAction = (id: string) => ({
+export const setAuthUserAction = (id: string) => ({
   type: AuthenticationAction.LOG_IN,
   id,
 });
@@ -18,7 +18,7 @@ export const handleLogin = (username: string, password: string) => async (dispat
   const interactor = new LogInServiceInteractor(services);
   const { success, userId }: Authentication = await interactor.logIn(username, password);
   if (success) {
-    dispatch(logInAction(userId));
+    dispatch(setAuthUserAction(userId));
   }
   dispatch(setReadyAction());
 };

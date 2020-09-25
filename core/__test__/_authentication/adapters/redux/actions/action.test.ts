@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 import {
   AuthenticationAction,
   handleLogin,
-  logInAction,
+  setAuthUserAction,
 } from '../../../../../lib/_authentication/adapters/redux/actions';
 import { EndpointAPI } from '../../../../../lib/config';
 import { mockedAuthentication } from '../../../__mocks__/authentication';
@@ -16,7 +16,7 @@ const mockStore = configureMockStore(middlewares);
 describe('Authentication Action', () => {
   it('should create an action for log in correctly', () => {
     const expectedId = 'usr-nbw2s2nkks9wmmw2kk';
-    expect(logInAction(expectedId)).toEqual({
+    expect(setAuthUserAction(expectedId)).toEqual({
       type: AuthenticationAction.LOG_IN,
       id: expectedId,
     });
