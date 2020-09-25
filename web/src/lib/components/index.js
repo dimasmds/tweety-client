@@ -1,2 +1,2 @@
-import './AppElement';
+import './AppRoute';
 import './PreLoader';
