@@ -37,7 +37,6 @@ class AppElement extends connect(store)(CommonElement) {
     if (!this._tweets.length) {
       return html`
         <div class="app">
-          <h1>${this._title}</h1>
         </div>
     `;
     }
