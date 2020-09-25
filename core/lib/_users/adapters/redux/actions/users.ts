@@ -3,8 +3,12 @@ import { setLoadingAction, setReadyAction } from '../../../../_shared/loading/ad
 import { UserService } from '../../../services';
 import { UserGetterServiceInteractor } from '../../../useCase';
 
+export const UserAction = {
+  RECEIVE_USERS: 'RECEIVE_USERS',
+};
+
 export const receiveUsersAction = (users: Array<User>) => ({
-  type: 'RECEIVE_USERS',
+  type: UserAction.RECEIVE_USERS,
   users,
 });
 
