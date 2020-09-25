@@ -17,7 +17,7 @@ describe('Authentication Action', () => {
   it('should create an action to set auth user correctly', () => {
     const expectedId = 'usr-nbw2s2nkks9wmmw2kk';
     expect(setAuthUserAction(expectedId)).toEqual({
-      type: AuthenticationAction.LOG_IN,
+      type: AuthenticationAction.SET_AUTH,
       id: expectedId,
     });
   });
@@ -32,7 +32,7 @@ describe('Authentication Action', () => {
 
     const expectedActions = [
       { type: LoadingAction.LOADING },
-      { type: AuthenticationAction.LOG_IN, id: mockedAuthentication.userId },
+      { type: AuthenticationAction.SET_AUTH, id: mockedAuthentication.userId },
       { type: LoadingAction.READY },
     ];
 

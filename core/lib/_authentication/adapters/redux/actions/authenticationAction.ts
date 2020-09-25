@@ -4,12 +4,12 @@ import { LogInServiceInteractor } from '../../../useCases';
 import { Authentication } from '../../../entities';
 
 export const AuthenticationAction = {
-  LOG_IN: 'LOG_IN',
+  SET_AUTH: 'SET_AUTH',
   REMOVE_AUTH: 'REMOVE_AUTH',
 };
 
 export const setAuthUserAction = (id: string) => ({
-  type: AuthenticationAction.LOG_IN,
+  type: AuthenticationAction.SET_AUTH,
   id,
 });
 
