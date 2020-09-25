@@ -1,2 +1,2 @@
-import './AppRoute';
+import './App/AppRoute';
 import './PreLoader';

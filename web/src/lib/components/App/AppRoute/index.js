@@ -1,7 +1,7 @@
 import { html } from 'lit-html';
 import { router } from 'lit-element-router';
-import CommonElement from '../__base__/CommonElement';
-import routes from '../../routes';
+import CommonElement from '../../__base__/CommonElement';
+import routes from '../../../routes';
 
 import '../AppMain';
 import '../AppLink';

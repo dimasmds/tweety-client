@@ -2,8 +2,7 @@ import { outlet } from 'lit-element-router';
 import { html } from 'lit-html';
 import { connect } from 'pwa-helpers';
 import { store } from 'Core/lib/frameworks/redux/store';
-import CommonElement from '../__base__/CommonElement';
-import { handleLogin } from '../../../../../core/lib/_authentication/adapters/redux/actions';
+import CommonElement from '../../__base__/CommonElement';
 
 class AppMain extends connect(store)(outlet(CommonElement)) {
   static get properties() {
@@ -19,11 +18,6 @@ class AppMain extends connect(store)(outlet(CommonElement)) {
   constructor() {
     super();
     this._auth = null;
-  }
-
-  firstUpdated(_changedProperties) {
-    super.firstUpdated(_changedProperties);
-    store.dispatch(handleLogin('dimasmds', 'qwerty123'));
   }
 
   render() {
