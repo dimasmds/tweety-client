@@ -1,9 +1,9 @@
 import { html } from 'lit-html';
 import { connect } from 'pwa-helpers';
+import { store } from 'Core/lib/frameworks';
+import { handleInitialTweets } from 'Core/lib/_tweets/adapters/redux/actions';
 import CommonElement from '../__base__/CommonElement';
 import style from './style.scss';
-import { store } from '../../../../../core/lib/frameworks';
-import { handleInitialTweets } from '../../../../../core/lib/_tweets/adapters/redux/actions';
 
 class AppElement extends connect(store)(CommonElement) {
   static get styles() {

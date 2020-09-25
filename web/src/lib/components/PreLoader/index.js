@@ -1,8 +1,7 @@
 import { html } from 'lit-html';
 import { connect } from 'pwa-helpers';
+import { store } from 'Core/lib/frameworks/redux/store';
 import CommonElement from '../__base__/CommonElement';
-import { store } from '../../../../../core/lib/frameworks';
-
 import style from './style.scss';
 
 class PreLoader extends connect(store)(CommonElement) {
