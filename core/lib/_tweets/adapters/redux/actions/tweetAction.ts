@@ -33,6 +33,7 @@ const handleInitialTweets = () => async (dispatch: any) => {
 };
 
 const handleAddTweet = (newTweet: NewTweet) => async (dispatch: any) => {
+  dispatch(setLoadingAction());
   const services = new TweetService();
   const interactor = new AddingServiceInteractor(services);
 
@@ -41,6 +42,7 @@ const handleAddTweet = (newTweet: NewTweet) => async (dispatch: any) => {
     return;
   }
   dispatch(addNewTweetAction(newTweet));
+  dispatch(setReadyAction());
 };
 
 export {
