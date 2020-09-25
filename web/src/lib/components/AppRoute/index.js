@@ -37,8 +37,6 @@ class AppRoute extends router(LitElement) {
 
   render() {
     return html`
-       <app-link href="/">Home</app-link>
-       <app-link href="/about">About</app-link>
        <app-main active-route="${this.route}">
             <h1 route="timeline">Timeline</h1>
             <h1 route="about">about</h1>
