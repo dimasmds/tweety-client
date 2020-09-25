@@ -5,11 +5,16 @@ import { Authentication } from '../../../entities';
 
 export const AuthenticationAction = {
   LOG_IN: 'LOG_IN',
+  REMOVE_AUTH: 'REMOVE_AUTH',
 };
 
 export const setAuthUserAction = (id: string) => ({
   type: AuthenticationAction.LOG_IN,
   id,
+});
+
+export const removeAuthUserAction = () => ({
+  type: AuthenticationAction.REMOVE_AUTH,
 });
 
 export const handleLogin = (username: string, password: string) => async (dispatch: any) => {
