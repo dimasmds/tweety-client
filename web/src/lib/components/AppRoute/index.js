@@ -33,8 +33,6 @@ class AppRoute extends router(LitElement) {
     this.params = params;
     this.query = query;
     this.data = data;
-    // eslint-disable-next-line no-console
-    console.log(route, params, query, data);
   }
 
   render() {
