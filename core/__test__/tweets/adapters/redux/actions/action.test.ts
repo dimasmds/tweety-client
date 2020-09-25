@@ -63,8 +63,14 @@ describe('Tweet Action', () => {
 
     const expectedActions = [
       {
+        type: LoadingAction.LOADING,
+      },
+      {
         type: TweetAction.ADD_TWEETS,
         newTweet: mockNewTweet,
+      },
+      {
+        type: LoadingAction.READY,
       },
     ];
 
