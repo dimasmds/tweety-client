@@ -3,7 +3,7 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import {
   AuthenticationAction,
-  handleLogin,
+  handleLogin, removeAuthUserAction,
   setAuthUserAction,
 } from '../../../../../lib/_authentication/adapters/redux/actions';
 import { EndpointAPI } from '../../../../../lib/config';
@@ -40,5 +40,11 @@ describe('Authentication Action', () => {
     // @ts-ignore
     await store.dispatch(handleLogin(inputUsername, inputPassword));
     expect(store.getActions()).toEqual(expectedActions);
+  });
+
+  it('should create an action to remove auth user correctly', () => {
+    expect(removeAuthUserAction()).toEqual({
+      type: AuthenticationAction.REMOVE_AUTH,
+    });
   });
 });
