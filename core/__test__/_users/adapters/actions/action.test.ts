@@ -2,7 +2,7 @@ import fetchMock from 'fetch-mock';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { mockedUsers } from '../../__mocks__/user';
-import { handleInitialUsers, receiveUsersAction } from '../../../../lib/_users/adapters/redux/actions/users';
+import { handleInitialUsers, receiveUsersAction } from '../../../../lib/_users/adapters/redux/actions';
 import { EndpointAPI } from '../../../../lib/config';
 import { LoadingAction } from '../../../../lib/_shared/loading/adapters/redux';
 
