@@ -2,7 +2,7 @@ export const AuthenticationAction = {
   LOG_IN: 'LOG_IN',
 };
 
-export const logInAction = (id: string) => ({
+export const logInAction = (username: string) => ({
   type: AuthenticationAction.LOG_IN,
-  id,
+  username,
 });

@@ -2,10 +2,10 @@ import { AuthenticationAction, logInAction } from '../../../../../lib/_authentic
 
 describe('Authentication Action', () => {
   it('should create an action for log in correctly', () => {
-    const expectedId = 'dimasmds';
-    expect(logInAction(expectedId)).toEqual({
+    const expectedUsername = 'dimasmds';
+    expect(logInAction(expectedUsername)).toEqual({
       type: AuthenticationAction.LOG_IN,
-      id: expectedId,
+      username: expectedUsername,
     });
   });
 });
