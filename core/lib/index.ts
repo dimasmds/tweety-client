@@ -1,2 +1,2 @@
-export * from './shared';
-export * from './tweets';
+export * from './_tweets';
+export * from './config';

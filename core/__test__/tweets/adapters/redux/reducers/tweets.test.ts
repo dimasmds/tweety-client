@@ -1,5 +1,5 @@
-import { tweetsReducers } from '../../../../../lib/tweets/adapters/redux/reducers';
-import { TweetAction } from '../../../../../lib/tweets/adapters/redux/actions';
+import { tweetsReducers } from '../../../../../lib/_tweets/adapters/redux/reducers';
+import { TweetAction } from '../../../../../lib/_tweets/adapters/redux/actions';
 import { mockedTweets, mockNewTweet } from '../../../__mocks__/tweet';
 
 describe('Tweets Reducer', () => {

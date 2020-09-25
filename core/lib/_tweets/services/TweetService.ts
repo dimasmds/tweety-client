@@ -1,6 +1,6 @@
 import { GetterService } from '../useCase';
 import { NewTweet, Tweet } from '../entities';
-import { EndpointAPI } from '../../shared';
+import { EndpointAPI } from '../../config';
 import { AddingService } from '../useCase/AddingServiceInteractor';
 
 export class TweetService implements GetterService, AddingService {
