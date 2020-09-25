@@ -1,4 +1,5 @@
 import { mockedUsers } from '../../__mocks__/user';
+import { receiveUsersAction } from '../../../../lib/_users/adapters/redux/actions/users';
 
 describe('Users Action', () => {
   it('should create an action to receive users correctly', () => {
@@ -9,6 +10,6 @@ describe('Users Action', () => {
       users,
     };
 
-    expect(receiveUsersAction(users)).toBe(expectedAction);
+    expect(receiveUsersAction(users)).toEqual(expectedAction);
   });
 });
