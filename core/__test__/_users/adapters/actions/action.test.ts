@@ -2,7 +2,7 @@ import fetchMock from 'fetch-mock';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { mockedUsers } from '../../__mocks__/user';
-import { receiveUsersAction } from '../../../../lib/_users/adapters/redux/actions/users';
+import { handleInitialUsers, receiveUsersAction } from '../../../../lib/_users/adapters/redux/actions/users';
 import { EndpointAPI } from '../../../../lib/config';
 import { LoadingAction } from '../../../../lib/_shared/loading/adapters/redux';
 
@@ -22,8 +22,8 @@ describe('Users Action', () => {
   });
 
   it('should create RECEIVE_USERS action when fetching users from API', async () => {
-    fetchMock.postOnce(EndpointAPI.getAllUsers, {
-      body: mockedUsers,
+    fetchMock.getOnce(EndpointAPI.getAllUsers, {
+      body: { users: mockedUsers },
     });
 
     const expectedActions = [
@@ -33,6 +33,7 @@ describe('Users Action', () => {
     ];
 
     const store = mockStore([]);
+    // @ts-ignore
     await store.dispatch(handleInitialUsers());
     expect(store.getActions()).toEqual(expectedActions);
   });
