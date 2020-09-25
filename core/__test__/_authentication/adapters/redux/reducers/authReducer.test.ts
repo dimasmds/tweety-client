@@ -12,4 +12,10 @@ describe('Auth Reducer', () => {
       id: 'asdfghkl',
     })).toEqual('asdfghkl');
   });
+
+  it('should remove authed id correctly', () => {
+    expect(authReducer('asdfghkl', {
+      type: AuthenticationAction.REMOVE_AUTH,
+    })).toEqual(null);
+  });
 });
