@@ -10,6 +10,7 @@ import {
 } from '../../../../../lib/_tweets/adapters/redux/actions';
 import { mockedTweets, mockNewTweet } from '../../../__mocks__/tweet';
 import { EndpointAPI } from '../../../../../lib/config';
+import { LoadingAction } from '../../../../../lib/_shared/loading/adapters/redux';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -31,7 +32,11 @@ describe('Tweet Action', () => {
       body: { tweets: mockedTweets },
     });
 
-    const expectedActions = [{ type: TweetAction.RECEIVE_TWEETS, tweets: mockedTweets }];
+    const expectedActions = [
+      { type: LoadingAction.LOADING },
+      { type: TweetAction.RECEIVE_TWEETS, tweets: mockedTweets },
+      { type: LoadingAction.READY },
+    ];
     const store = mockStore({ tweets: [] });
 
     // @ts-ignore
