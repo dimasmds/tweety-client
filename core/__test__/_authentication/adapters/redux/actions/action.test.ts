@@ -14,7 +14,7 @@ const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
 describe('Authentication Action', () => {
-  it('should create an action for log in correctly', () => {
+  it('should create an action to set auth user correctly', () => {
     const expectedId = 'usr-nbw2s2nkks9wmmw2kk';
     expect(setAuthUserAction(expectedId)).toEqual({
       type: AuthenticationAction.LOG_IN,
@@ -22,7 +22,7 @@ describe('Authentication Action', () => {
     });
   });
 
-  it('should create an action for log in when fetch to api', async () => {
+  it('should create an action to set auth user when log in success', async () => {
     fetchMock.postOnce(EndpointAPI.logIn, {
       body: mockedAuthentication,
     });
