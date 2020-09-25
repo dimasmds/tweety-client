@@ -1,6 +1,6 @@
 import { createStore, combineReducers } from 'redux';
-import { tweetsReducers } from '../../../_tweets/adapters/redux/reducers';
 import { middlewares } from '../middlewares';
+import { tweetsReducers } from '../../../_tweets/adapters/redux/reducers';
 import { loadingReducer } from '../../../_shared/loading/adapters/redux';
 import { usersReducer } from '../../../_users/adapters/redux/reducers';
 import { authReducer } from '../../../_authentication/adapters/redux/reducers';
