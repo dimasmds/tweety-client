@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { html } from 'lit-html';
 import { connect } from 'pwa-helpers';
 import { store } from 'Core/lib/frameworks/redux/store';
@@ -21,13 +22,12 @@ class PreLoader extends connect(store)(CommonElement) {
 
   constructor() {
     super();
-    this._loader = false;
+    this._loader = null;
   }
 
   render() {
     return html`
-      <div class="pre-loader ${this._loader ? 'show' : 'hide'}">
-        <h2>HAI!</h2>
+      <div class="${this._loader === null ? '' : this._loader ? 'load' : 'finish'}">
       </div>
     `;
   }

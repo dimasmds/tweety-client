@@ -1,3 +1,22 @@
-.hide {
-  display: none;
+:host {
+  display: block;
+}
+div {
+  opacity: 100%;
+  top: 0;
+  position: fixed;
+  background-color: #1d5880;
+  width: 0;
+  height: 3px;
+  transition: width 5s;
+}
+
+.load {
+  width: 75%;
+}
+
+.finish {
+  transition: width 1s, opacity 1s;
+  width: 100%;
+  opacity: 0;
 }
