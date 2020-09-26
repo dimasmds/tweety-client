@@ -1,14 +1,22 @@
 import AsyncStorage from '@react-native-community/async-storage';
-import { GetAuthService, LogInService } from '../useCases';
+import { GetAuthService, LogInService, LogOutService } from '../useCases';
 import { Authentication } from '../entities';
 import { EndpointAPI } from '../../config';
 
-export class AuthenticationService implements LogInService, GetAuthService {
+export class AuthenticationService implements LogInService, GetAuthService, LogOutService {
   async logIn(username: string, password: string): Promise<Authentication> {
     try {
       const authentication: Authentication = await this._requestLoginToAPI(username, password);
       await this._saveIdToStorage(authentication.userId);
       return authentication;
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
+  async LogOut(): Promise<void> {
+    try {
+      await AsyncStorage.removeItem('AUTH_ID');
     } catch (error) {
       throw new Error(error);
     }
