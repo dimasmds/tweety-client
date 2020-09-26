@@ -1,6 +1,6 @@
 import { setLoadingAction, setReadyAction } from '../../../../_shared/loading/adapters/redux';
 import { AuthenticationService } from '../../../services';
-import { GetAuthServiceInteractor, LogInServiceInteractor } from '../../../useCases';
+import { GetAuthServiceInteractor, LogInServiceInteractor, LogOutServiceInteractor } from '../../../useCases';
 import { Authentication } from '../../../entities';
 
 export const AuthenticationAction = {
@@ -16,6 +16,15 @@ export const setAuthUserAction = (id: string) => ({
 export const removeAuthUserAction = () => ({
   type: AuthenticationAction.REMOVE_AUTH,
 });
+
+export const handleLogout = () => async (dispatch: any) => {
+  dispatch(setLoadingAction());
+  const service = new AuthenticationService();
+  const interactor = new LogOutServiceInteractor(service);
+  await interactor.logOut();
+  dispatch(removeAuthUserAction());
+  dispatch(setReadyAction());
+};
 
 export const handleGetAuth = () => async (dispatch: any) => {
   dispatch(setLoadingAction());

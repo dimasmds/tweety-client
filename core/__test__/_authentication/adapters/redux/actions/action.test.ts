@@ -3,7 +3,7 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import {
   AuthenticationAction, handleGetAuth,
-  handleLogin, removeAuthUserAction,
+  handleLogin, handleLogout, removeAuthUserAction,
   setAuthUserAction,
 } from '../../../../../lib/_authentication/adapters/redux/actions';
 import { EndpointAPI } from '../../../../../lib/config';
@@ -64,5 +64,18 @@ describe('Authentication Action', () => {
     await store.dispatch(handleGetAuth());
     expect(store.getActions()).toEqual(expectedActions);
     expect(spyGetAuth).toBeCalled();
+  });
+
+  it('should handle and create action correctly when user logout', async () => {
+    const expectedActions = [
+      { type: LoadingAction.LOADING },
+      { type: AuthenticationAction.REMOVE_AUTH },
+      { type: LoadingAction.READY },
+    ];
+
+    const store = mockStore('fakeUserId');
+    // @ts-ignore
+    await store.dispatch(handleLogout());
+    expect(store.getActions()).toEqual(expectedActions);
   });
 });
