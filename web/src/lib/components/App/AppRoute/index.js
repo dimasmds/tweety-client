@@ -1,6 +1,6 @@
 import { html } from 'lit-html';
-import { router } from 'lit-element-router';
-import { store } from 'tweet-client-core/lib';
+import { router, navigator } from 'lit-element-router';
+import { handleGetAuth, store } from 'tweet-client-core/lib';
 import { connect } from 'pwa-helpers';
 import CommonElement from '../../__base__/CommonElement';
 import routes from '../../../routes';
@@ -10,7 +10,7 @@ import '../AppLink';
 import '../../Auth/LoginPage';
 import '../../Auth/LogoutButton';
 
-class AppRoute extends connect(store)(router(CommonElement)) {
+class AppRoute extends connect(store)(navigator(router(CommonElement))) {
   static get properties() {
     return {
       route: { type: String },
@@ -34,6 +34,11 @@ class AppRoute extends connect(store)(router(CommonElement)) {
     this._auth = null;
   }
 
+  connectedCallback() {
+    super.connectedCallback();
+    store.dispatch(handleGetAuth());
+  }
+
   stateChanged({ auth }) {
     this._auth = auth;
   }
@@ -47,9 +52,21 @@ class AppRoute extends connect(store)(router(CommonElement)) {
 
   render() {
     if (!this._auth && this.route !== 'register') {
-      return html`<login-page></login-page>`;
+      return this._renderLoginPage();
     }
 
+    if (this._auth && this.route === 'register') {
+      this.navigate('/');
+    }
+
+    return this._renderAppMain();
+  }
+
+  _renderLoginPage() {
+    return html`<login-page></login-page>`;
+  }
+
+  _renderAppMain() {
     return html`
        <app-main active-route="${this.route}">
             <div route="timeline">
@@ -57,6 +74,7 @@ class AppRoute extends connect(store)(router(CommonElement)) {
                 <logout-button>Logout</logout-button>
             </div>
             <h1 route="about">about</h1>
+            <h1 route="register">register</h1>
             <h1 route="not-found">Not Found</h1>
        </app-main>
     `;

@@ -12,6 +12,10 @@ const routes = [
     name: 'not-found',
     pattern: '*',
   },
+  {
+    name: 'register',
+    pattern: 'register',
+  },
 ];
 
 export default routes;
