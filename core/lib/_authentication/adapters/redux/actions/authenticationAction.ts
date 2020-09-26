@@ -40,6 +40,7 @@ export const handleLogin = (username: string, password: string) => async (dispat
   dispatch(setLoadingAction());
   const services = new AuthenticationService();
   const interactor = new LogInServiceInteractor(services);
+
   try {
     const { success, userId }: Authentication = await interactor.logIn(username, password);
     if (success) {
@@ -52,5 +53,6 @@ export const handleLogin = (username: string, password: string) => async (dispat
       date: new Date().toISOString(),
     }));
   }
+
   dispatch(setReadyAction());
 };
