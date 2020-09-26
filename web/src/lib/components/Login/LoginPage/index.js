@@ -1,9 +1,9 @@
 import { connect } from 'pwa-helpers';
 import { store } from 'Core/lib/frameworks/redux/store';
 import { html } from 'lit-html';
+import { handleLogin } from 'tweet-client-core/lib';
 import CommonElement from '../../__base__/CommonElement';
 import style from './style.scss';
-import { handleLogin } from '../../../../../../core/lib/_authentication/adapters/redux/actions';
 
 class LoginPage extends connect(store)(CommonElement) {
   static get properties() {
