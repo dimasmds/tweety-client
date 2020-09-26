@@ -4,7 +4,7 @@ import { handleGetAuth, store } from 'tweet-client-core/lib';
 import { connect } from 'pwa-helpers';
 
 import CommonElement from '../../__base__/CommonElement';
-import '../../Login/LoginPage';
+import '../../Auth/LoginPage';
 
 class AppMain extends connect(store)(outlet(CommonElement)) {
   static get properties() {
