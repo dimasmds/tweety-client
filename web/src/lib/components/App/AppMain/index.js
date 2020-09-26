@@ -4,6 +4,8 @@ import { connect } from 'pwa-helpers';
 import { store } from 'Core/lib/frameworks/redux/store';
 import CommonElement from '../../__base__/CommonElement';
 
+import '../../Login/LoginPage';
+
 class AppMain extends connect(store)(outlet(CommonElement)) {
   static get properties() {
     return {
@@ -22,7 +24,7 @@ class AppMain extends connect(store)(outlet(CommonElement)) {
 
   render() {
     if (!this._auth) {
-      return html`<h1>Belum login</h1>`;
+      return html`<login-page></login-page>`;
     }
     return html`
       <slot></slot>
