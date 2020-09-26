@@ -1,0 +1,37 @@
+:host {
+  display: block;
+}
+
+.error-dialog {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 16px;
+
+  .error-dialog__content {
+    position: relative;
+    bottom: -100px;
+    opacity: 0;
+    border-radius: 10px;
+    padding: 16px 16px;
+    background-color: #c0392b;
+    transition: opacity 500ms, bottom 300ms;
+    overflow: auto;
+
+    p {
+      text-align: center;
+      font-weight: bold;
+      color: white;
+      font-size: 18px;
+    }
+  }
+
+  .display {
+    bottom: 0;
+    opacity: 100%;
+  }
+}

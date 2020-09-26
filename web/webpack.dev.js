@@ -8,6 +8,7 @@ module.exports = merge(common, {
   devtool: 'inline-source-map',
   devServer: {
     contentBase: path.resolve(__dirname, 'dist'),
+    disableHostCheck: true,
     historyApiFallback: true,
   },
 });
