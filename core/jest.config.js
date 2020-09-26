@@ -1,3 +1,5 @@
+const { resolve } = require('path');
+
 module.exports = {
   verbose: true,
   transformIgnorePatterns: [
@@ -5,5 +7,8 @@ module.exports = {
   ],
   testMatch: [
     '**/?(*.)+(spec|test).+(ts|js)',
+  ],
+  setupFiles: [
+    resolve(__dirname, '__mocks__/@react-native-community/async-storage.js'),
   ],
 };
