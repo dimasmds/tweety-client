@@ -1,19 +1,23 @@
 import { html } from 'lit-html';
 import { router } from 'lit-element-router';
+import { store } from 'tweet-client-core/lib';
+import { connect } from 'pwa-helpers';
 import CommonElement from '../../__base__/CommonElement';
 import routes from '../../../routes';
 
 import '../AppMain';
 import '../AppLink';
+import '../../Auth/LoginPage';
 import '../../Auth/LogoutButton';
 
-class AppRoute extends router(CommonElement) {
+class AppRoute extends connect(store)(router(CommonElement)) {
   static get properties() {
     return {
       route: { type: String },
       params: { type: Object },
       query: { type: Object },
       data: { type: Object },
+      _auth: { type: String },
     };
   }
 
@@ -27,6 +31,11 @@ class AppRoute extends router(CommonElement) {
     this.params = {};
     this.query = {};
     this.data = {};
+    this._auth = null;
+  }
+
+  stateChanged({ auth }) {
+    this._auth = auth;
   }
 
   router(route, params, query, data) {
@@ -37,6 +46,10 @@ class AppRoute extends router(CommonElement) {
   }
 
   render() {
+    if (!this._auth && this.route !== 'register') {
+      return html`<login-page></login-page>`;
+    }
+
     return html`
        <app-main active-route="${this.route}">
             <div route="timeline">
