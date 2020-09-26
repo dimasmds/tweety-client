@@ -1,6 +1,6 @@
 import { outlet } from 'lit-element-router';
 import { html } from 'lit-html';
-import { store } from 'tweet-client-core/lib';
+import { handleGetAuth, store } from 'tweet-client-core/lib';
 import { connect } from 'pwa-helpers';
 
 import CommonElement from '../../__base__/CommonElement';
@@ -20,6 +20,11 @@ class AppMain extends connect(store)(outlet(CommonElement)) {
   constructor() {
     super();
     this._auth = null;
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
+    store.dispatch(handleGetAuth());
   }
 
   render() {
