@@ -2,6 +2,7 @@ import { setLoadingAction, setReadyAction } from '../../../../_shared/loading/ad
 import { AuthenticationService } from '../../../services';
 import { GetAuthServiceInteractor, LogInServiceInteractor, LogOutServiceInteractor } from '../../../useCases';
 import { Authentication } from '../../../entities';
+import { addErrorAction } from '../../../../_shared/error/adapters/redux';
 
 export const AuthenticationAction = {
   SET_AUTH: 'SET_AUTH',
@@ -39,9 +40,17 @@ export const handleLogin = (username: string, password: string) => async (dispat
   dispatch(setLoadingAction());
   const services = new AuthenticationService();
   const interactor = new LogInServiceInteractor(services);
-  const { success, userId }: Authentication = await interactor.logIn(username, password);
-  if (success) {
-    dispatch(setAuthUserAction(userId));
+  try {
+    const { success, userId }: Authentication = await interactor.logIn(username, password);
+    if (success) {
+      dispatch(setAuthUserAction(userId));
+    }
+  } catch (error) {
+    dispatch(addErrorAction({
+      userMessage: 'Invalid username and password',
+      originalMessage: error.message,
+      date: new Date().toISOString(),
+    }));
   }
   dispatch(setReadyAction());
 };
