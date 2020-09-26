@@ -2,13 +2,14 @@ import fetchMock from 'fetch-mock';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import {
-  AuthenticationAction,
+  AuthenticationAction, handleGetAuth,
   handleLogin, removeAuthUserAction,
   setAuthUserAction,
 } from '../../../../../lib/_authentication/adapters/redux/actions';
 import { EndpointAPI } from '../../../../../lib/config';
 import { mockedAuthentication } from '../../../__mocks__/authentication';
 import { LoadingAction } from '../../../../../lib/_shared/loading/adapters/redux';
+import { AuthenticationService } from '../../../../../lib/_authentication/services';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -46,5 +47,22 @@ describe('Authentication Action', () => {
     expect(removeAuthUserAction()).toEqual({
       type: AuthenticationAction.REMOVE_AUTH,
     });
+  });
+
+  it('should set auth from saved auth when initial auth', async () => {
+    const spyGetAuth = jest.spyOn(AuthenticationService.prototype as any, 'getAuth')
+      .mockResolvedValue('fakeUserId');
+
+    const expectedActions = [
+      { type: LoadingAction.LOADING },
+      { type: AuthenticationAction.SET_AUTH, id: 'fakeUserId' },
+      { type: LoadingAction.READY },
+    ];
+
+    const store = mockStore(null);
+    // @ts-ignore
+    await store.dispatch(handleGetAuth());
+    expect(store.getActions()).toEqual(expectedActions);
+    expect(spyGetAuth).toBeCalled();
   });
 });
