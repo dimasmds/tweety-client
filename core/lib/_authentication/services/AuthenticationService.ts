@@ -16,7 +16,7 @@ export class AuthenticationService implements LogInService, GetAuthService, LogO
 
   async LogOut(): Promise<void> {
     try {
-      await AsyncStorage.removeItem('AUTH_ID');
+      return await AsyncStorage.removeItem('AUTH_ID');
     } catch (error) {
       throw new Error(error);
     }

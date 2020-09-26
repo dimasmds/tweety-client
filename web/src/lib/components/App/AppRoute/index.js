@@ -5,6 +5,7 @@ import routes from '../../../routes';
 
 import '../AppMain';
 import '../AppLink';
+import '../../Auth/LogoutButton';
 
 class AppRoute extends router(CommonElement) {
   static get properties() {
@@ -38,7 +39,10 @@ class AppRoute extends router(CommonElement) {
   render() {
     return html`
        <app-main active-route="${this.route}">
-            <h1 route="timeline">Timeline</h1>
+            <div route="timeline">
+                <h1>Timeline</h1>
+                <logout-button>Logout</logout-button>
+            </div>
             <h1 route="about">about</h1>
             <h1 route="not-found">Not Found</h1>
        </app-main>

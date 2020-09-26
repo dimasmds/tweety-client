@@ -10,6 +10,6 @@ export class LogOutServiceInteractor {
   }
 
   async logOut() {
-    await this._logOutService.LogOut;
+    return this._logOutService.LogOut();
   }
 }
