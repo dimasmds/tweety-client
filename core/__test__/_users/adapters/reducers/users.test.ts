@@ -1,5 +1,5 @@
 import { userReducer } from '../../../../lib/_user/adapters/redux/reducers';
-import { mockedUsers } from '../../__mocks__/user';
+import { mockedUser } from '../../__mocks__/user';
 
 describe('Users Reducers', () => {
   it('should return initial data correctly', () => {
@@ -8,8 +8,8 @@ describe('Users Reducers', () => {
 
   it('should handle receive users action correctly', () => {
     expect(userReducer(null, {
-      type: 'RECEIVE_USERS',
-      users: mockedUsers,
-    })).toEqual(mockedUsers);
+      type: 'RECEIVE_USER',
+      user: mockedUser,
+    })).toEqual(mockedUser);
   });
 });

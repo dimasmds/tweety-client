@@ -5,11 +5,11 @@ import { UserGetterServiceInteractor } from '../../../useCase';
 import { addErrorAction } from '../../../../_shared/error/adapters/redux';
 
 export const UserAction = {
-  RECEIVE_USERS: 'RECEIVE_USERS',
+  RECEIVE_USER: 'RECEIVE_USER',
 };
 
 export const receiveUsersAction = (user: User) => ({
-  type: UserAction.RECEIVE_USERS,
+  type: UserAction.RECEIVE_USER,
   user,
 });
 

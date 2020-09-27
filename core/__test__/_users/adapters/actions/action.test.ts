@@ -1,9 +1,9 @@
 import fetchMock from 'fetch-mock';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import { mockedUsers } from '../../__mocks__/user';
+import { mockedUser } from '../../__mocks__/user';
 import {
-  handleInitialUsers,
+  handleLoggedUser,
   receiveUsersAction,
 } from '../../../../lib/_user/adapters/redux/actions';
 import { EndpointAPI } from '../../../../lib/config';
@@ -14,31 +14,31 @@ const mockStore = configureMockStore(middlewares);
 
 describe('Users Action', () => {
   it('should create an action to receive users correctly', () => {
-    const users = mockedUsers;
+    const user = mockedUser;
 
     const expectedAction = {
-      type: 'RECEIVE_USERS',
-      users,
+      type: 'RECEIVE_USER',
+      user,
     };
 
-    expect(receiveUsersAction(users)).toEqual(expectedAction);
+    expect(receiveUsersAction(user)).toEqual(expectedAction);
   });
 
   it('should create RECEIVE_USERS action when fetching users from API', async () => {
-    fetchMock.getOnce(EndpointAPI.getAllUsers, {
-      body: { users: mockedUsers },
+    fetchMock.getOnce(EndpointAPI.getUserById('fakeUserId'), {
+      body: { user: mockedUser },
     });
 
     const expectedActions = [
       { type: LoadingAction.LOADING },
-      { type: 'RECEIVE_USERS', users: mockedUsers },
+      { type: 'RECEIVE_USER', user: mockedUser },
       { type: LoadingAction.READY },
     ];
 
     const store = mockStore([]);
 
     // @ts-ignore
-    await store.dispatch(handleInitialUsers());
+    await store.dispatch(handleLoggedUser('fakeUserId'));
     expect(store.getActions()).toEqual(expectedActions);
   });
 });
