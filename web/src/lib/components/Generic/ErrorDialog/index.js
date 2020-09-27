@@ -1,7 +1,7 @@
 import { connect } from 'pwa-helpers';
 import { removeErrorAction, store } from 'tweet-client-core/lib';
 import { html } from 'lit-html';
-import CommonElement from '../__base__/CommonElement';
+import CommonElement from '../../__base__/CommonElement';
 
 import style from './style.scss';
 
