@@ -1,4 +1,5 @@
 import { TweetyError } from '../../entities';
+import { delay } from '../../../utils';
 
 export const ErrorAction = {
   SET_ERROR: 'SET_ERROR',
@@ -12,10 +13,6 @@ export const addErrorAction = (error: TweetyError) => ({
 
 export const removeErrorAction = () => ({
   type: ErrorAction.REMOVE_ERROR,
-});
-
-const delay = (millisecond: number) => new Promise((resolve) => {
-  setTimeout(resolve, millisecond);
 });
 
 export const handleAddError = (error: TweetyError) => async (dispatch: any) => {
