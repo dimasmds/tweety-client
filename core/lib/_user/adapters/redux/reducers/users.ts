@@ -1,7 +1,7 @@
 import { UserAction } from '../actions';
 import { User } from '../../../entities';
 
-export const usersReducer = (state: Array<User> = [], action: any) => {
+export const userReducer = (state: User = null, action: any) => {
   switch (action.type) {
     case UserAction.RECEIVE_USERS:
       return action.users;
