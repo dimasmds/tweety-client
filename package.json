@@ -4,5 +4,8 @@
   "description": "",
   "main": "index.js",
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "scripts": {
+    "build": "cd ./core && npm install && npm run test && cd ../web && npm install && npm run build"
+  }
 }
