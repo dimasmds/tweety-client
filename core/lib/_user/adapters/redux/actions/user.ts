@@ -2,7 +2,7 @@ import { User } from '../../../entities';
 import { setLoadingAction, setReadyAction } from '../../../../_shared/loading/adapters/redux';
 import { UserService } from '../../../services';
 import { UserGetterServiceInteractor } from '../../../useCase';
-import { addErrorAction } from '../../../../_shared/error/adapters/redux';
+import { handleAddError } from '../../../../_shared/error/adapters/redux';
 
 export const UserAction = {
   RECEIVE_USER: 'RECEIVE_USER',
@@ -22,7 +22,7 @@ export const handleLoggedUser = (userId: string) => async (dispatch: any) => {
     const users = await interactor.getUserById(userId);
     dispatch(receiveUsersAction(users));
   } catch (error) {
-    dispatch(addErrorAction({
+    dispatch(handleAddError({
       userMessage: error.message || 'Are you logged in?',
       originalMessage: error.message,
       date: new Date().toISOString(),

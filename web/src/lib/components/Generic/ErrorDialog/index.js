@@ -1,5 +1,5 @@
 import { connect } from 'pwa-helpers';
-import { removeErrorAction, store } from 'tweet-client-core/lib';
+import { store } from 'tweet-client-core/lib';
 import { html } from 'lit-html';
 import CommonElement from '../../__base__/CommonElement';
 
@@ -18,10 +18,8 @@ class ErrorDialog extends connect(store)(CommonElement) {
   }
 
   stateChanged({ error }) {
-    if (error) {
-      this._error = error;
-      this._display = true;
-    }
+    this._error = error || this._error;
+    this._display = !!error;
   }
 
   constructor() {
@@ -31,11 +29,6 @@ class ErrorDialog extends connect(store)(CommonElement) {
   }
 
   render() {
-    setTimeout(() => {
-      this._display = false;
-      store.dispatch(removeErrorAction());
-    }, 5000);
-
     return html`
       <div class="error-dialog">
         <div class="error-dialog__content ${this._display ? 'display' : ''}">

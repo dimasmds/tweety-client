@@ -7,7 +7,7 @@ import {
   RegisterAuthServiceInteractor,
 } from '../../../useCases';
 import { Authentication, RegisterUser } from '../../../entities';
-import { addErrorAction } from '../../../../_shared/error/adapters/redux';
+import { handleAddError } from '../../../../_shared/error/adapters/redux';
 
 export const AuthenticationAction = {
   SET_AUTH: 'SET_AUTH',
@@ -52,7 +52,7 @@ export const handleLogin = (username: string, password: string) => async (dispat
       dispatch(setAuthUserAction(userId));
     }
   } catch (error) {
-    dispatch(addErrorAction({
+    dispatch(handleAddError({
       userMessage: 'Invalid username and password',
       originalMessage: error.message,
       date: new Date().toISOString(),
@@ -71,7 +71,7 @@ export const handleRegister = (registerUser: RegisterUser) => async (dispatch: a
     const userId: string = await interactor.register(registerUser);
     dispatch(setAuthUserAction(userId));
   } catch (error) {
-    dispatch(addErrorAction({
+    dispatch(handleAddError({
       userMessage: error.message || 'Failed to Register, try again!',
       originalMessage: error.message,
       date: new Date().toISOString(),

@@ -13,3 +13,13 @@ export const addErrorAction = (error: TweetyError) => ({
 export const removeErrorAction = () => ({
   type: ErrorAction.REMOVE_ERROR,
 });
+
+const delay = (millisecond: number) => new Promise((resolve) => {
+  setTimeout(resolve, millisecond);
+});
+
+export const handleAddError = (error: TweetyError) => async (dispatch: any) => {
+  dispatch(addErrorAction(error));
+  await delay(5000);
+  dispatch(removeErrorAction());
+};
