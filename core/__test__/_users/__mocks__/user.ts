@@ -1,4 +1,4 @@
-import { User } from '../../../lib/_users/entities/User';
+import { User } from '../../../lib/_user/entities/User';
 
 export const mockedUsers: Array<User> = [
   {
