@@ -10,6 +10,7 @@ import { EndpointAPI } from '../../../../../lib/config';
 import { mockedAuthentication } from '../../../__mocks__/authentication';
 import { LoadingAction } from '../../../../../lib/_shared/loading/adapters/redux';
 import { AuthenticationService } from '../../../../../lib/_authentication/services';
+import { ToastActions } from '../../../../../lib/_shared/toast/adapters/redux';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -85,6 +86,11 @@ describe('Authentication Action', () => {
     const expectedActions = [
       { type: LoadingAction.LOADING },
       { type: AuthenticationAction.SET_AUTH, id: 'fakeUserId' },
+      {
+        type: ToastActions.SET_TOAST,
+        toastPayload:
+          { title: 'Welcome 👋', message: 'Hai! Welcome to tweety. Enjoy!' },
+      },
       { type: LoadingAction.READY },
     ];
 
