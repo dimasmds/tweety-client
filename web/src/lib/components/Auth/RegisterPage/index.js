@@ -1,6 +1,6 @@
 import { connect } from 'pwa-helpers';
 import { navigator } from 'lit-element-router';
-import { handleRegisterUser, store } from 'tweet-client-core/lib';
+import { handleRegister, store } from 'tweet-client-core/lib';
 import { html } from 'lit-html';
 import CommonElement from '../../__base__/CommonElement';
 
@@ -45,7 +45,7 @@ class RegisterPage extends connect(store)(navigator(CommonElement)) {
   _onRegisterButtonClickHandler(event) {
     event.preventDefault();
 
-    store.dispatch(handleRegisterUser({
+    store.dispatch(handleRegister({
       name: this._name,
       username: this._username,
       password: this._password,

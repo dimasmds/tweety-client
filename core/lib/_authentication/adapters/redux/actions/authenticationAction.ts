@@ -1,7 +1,12 @@
 import { setLoadingAction, setReadyAction } from '../../../../_shared/loading/adapters/redux';
 import { AuthenticationService } from '../../../services';
-import { GetAuthServiceInteractor, LogInServiceInteractor, LogOutServiceInteractor } from '../../../useCases';
-import { Authentication } from '../../../entities';
+import {
+  GetAuthServiceInteractor,
+  LogInServiceInteractor,
+  LogOutServiceInteractor,
+  RegisterAuthServiceInteractor,
+} from '../../../useCases';
+import { Authentication, RegisterUser } from '../../../entities';
 import { addErrorAction } from '../../../../_shared/error/adapters/redux';
 
 export const AuthenticationAction = {
@@ -49,6 +54,25 @@ export const handleLogin = (username: string, password: string) => async (dispat
   } catch (error) {
     dispatch(addErrorAction({
       userMessage: 'Invalid username and password',
+      originalMessage: error.message,
+      date: new Date().toISOString(),
+    }));
+  }
+
+  dispatch(setReadyAction());
+};
+
+export const handleRegister = (registerUser: RegisterUser) => async (dispatch: any) => {
+  dispatch(setLoadingAction());
+  const services = new AuthenticationService();
+  const interactor = new RegisterAuthServiceInteractor(services);
+
+  try {
+    const userId: string = await interactor.register(registerUser);
+    dispatch(setAuthUserAction(userId));
+  } catch (error) {
+    dispatch(addErrorAction({
+      userMessage: error.message || 'Failed to Register, try again!',
       originalMessage: error.message,
       date: new Date().toISOString(),
     }));
