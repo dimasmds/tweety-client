@@ -69,6 +69,7 @@ export class AuthenticationService implements LogInService, GetAuthService,
       throw new Error(message || statusText);
     }
     const { userId } = await response.json();
+    await this._saveIdToStorage(userId);
     return userId;
   }
 }

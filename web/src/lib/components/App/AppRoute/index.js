@@ -1,6 +1,6 @@
 import { html } from 'lit-html';
 import { router, navigator } from 'lit-element-router';
-import { handleGetAuth, store } from 'tweet-client-core/lib';
+import { handleGetAuth, handleLoggedUser, store } from 'tweet-client-core/lib';
 import { connect } from 'pwa-helpers';
 import CommonElement from '../../__base__/CommonElement';
 import routes from '../../../routes';
@@ -57,6 +57,10 @@ class AppRoute extends connect(store)(navigator(router(CommonElement))) {
 
     if (this._auth && this.route === 'register') {
       this.navigate('/');
+    }
+
+    if (this.route !== 'register') {
+      store.dispatch(handleLoggedUser(this._auth));
     }
 
     return this._renderAppMain();
