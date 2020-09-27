@@ -3,6 +3,8 @@ import CommonElement from '../../__base__/CommonElement';
 
 import style from './style.scss';
 
+import '../../Generic/AppBar';
+
 class TimelinePage extends CommonElement {
   static get styles() {
     return [...super.styles, style];

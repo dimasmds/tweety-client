@@ -5,8 +5,8 @@ const routes = [
     data: { title: 'Timeline' },
   },
   {
-    name: 'about',
-    pattern: 'about',
+    name: 'user',
+    pattern: 'user/:id',
   },
   {
     name: 'not-found',
@@ -15,6 +15,10 @@ const routes = [
   {
     name: 'register',
     pattern: 'register',
+  },
+  {
+    name: 'logout',
+    pattern: 'logout',
   },
 ];
 

@@ -8,7 +8,8 @@ import routes from '../../../routes';
 import '../AppMain';
 import '../../Auth/LoginPage';
 import '../../Auth/RegisterPage';
-import '../../Auth/LogoutButton';
+import '../../Auth/LogoutPage';
+import '../../Timeline/TimelinePage';
 
 class AppRoute extends connect(store)(navigator(router(CommonElement))) {
   static get properties() {
@@ -51,6 +52,10 @@ class AppRoute extends connect(store)(navigator(router(CommonElement))) {
   }
 
   render() {
+    if (this.route === 'logout') {
+      return this._renderLogoutPage();
+    }
+
     if (!this._auth && this.route !== 'register') {
       return this._renderLoginPage();
     }
@@ -70,14 +75,17 @@ class AppRoute extends connect(store)(navigator(router(CommonElement))) {
     return html`<login-page></login-page>`;
   }
 
+  _renderLogoutPage() {
+    return html`<logout-page></logout-page>`;
+  }
+
   _renderAppMain() {
     return html`
        <app-main active-route="${this.route}">
             <div route="timeline">
-                <h1>Timeline</h1>
-                <logout-button>Logout</logout-button>
+                <timeline-page></timeline-page>
             </div>
-            <h1 route="about">about</h1>
+            <h1 route="user">user</h1>
             <div route="register">
                 <register-page></register-page>
             </div>

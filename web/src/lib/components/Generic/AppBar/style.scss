@@ -1,0 +1,54 @@
+:host {
+  display: block;
+}
+
+.app-bar {
+  width: 100%;
+  padding: 8px;
+  background-color: #1d5880;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 10px;
+  z-index: 99;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 2px 4px 0;
+
+  .app-bar__menu {
+    display: flex;
+    align-items: center;
+
+    button {
+      color: white;
+      background-color: transparent;
+      border: none;
+      font-size: 18px;
+      padding: 8px;
+      cursor: pointer;
+    }
+  }
+
+  .app-bar__brand {
+    display: flex;
+    align-items: center;
+
+    h1 {
+      color: white;
+      user-select: none;
+      font-weight: bold;
+    }
+  }
+
+  .app-bar__navigation {
+    position: absolute;
+    top: 56px;
+    left: -150px;
+    width: 150px;
+    height: calc(100vh - 56px);
+    transition: all 0.3s ease 0s;
+    overflow: hidden;
+    background-color: #177ab3;
+  }
+
+  .open {
+    left: 0;
+  }
+}
