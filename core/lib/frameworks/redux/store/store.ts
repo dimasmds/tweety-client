@@ -8,7 +8,7 @@ import { errorReducer } from '../../../_shared/error/adapters/redux';
 
 const rootReducer = {
   tweets: tweetsReducers,
-  users: userReducer,
+  user: userReducer,
   loading: loadingReducer,
   auth: authReducer,
   error: errorReducer,
