@@ -2,11 +2,17 @@ import { navigator } from 'lit-element-router';
 import { html } from 'lit-html';
 import CommonElement from '../../__base__/CommonElement';
 
+import style from './style.scss';
+
 class AppLink extends navigator(CommonElement) {
   static get properties() {
     return {
       href: { type: String },
     };
+  }
+
+  static get styles() {
+    return [...super.styles, style];
   }
 
   constructor() {

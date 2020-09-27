@@ -35,14 +35,32 @@
 
       .login-input__form {
 
+        .login-input__password {
+          position: relative;
+          display: flex;
+
+          .login-input__password-button-visible {
+            position: absolute;
+            background-color: white;
+            border: 0;
+            font-weight: bold;
+            right: 2px;
+            top: 11px;
+            cursor: pointer;
+            padding: 7px;
+            text-transform: uppercase;
+          }
+        }
+
         .login-input__text {
           display: block;
           width: 100%;
-          padding: 6px;
+          padding: 8px;
           margin-top: 8px;
           margin-bottom: 8px;
           border: 1px solid black;
           border-radius: 4px;
+          font-size: 16px;
         }
 
         .login-input__submit {
@@ -54,7 +72,16 @@
           border: 0;
           color: white;
           border-radius: 4px;
+          font-size: 16px;
+          cursor: pointer;
         }
+      }
+    }
+
+    .login-content__footer {
+      app-link {
+        margin: 16px 0 0 0;
+        font-size: 14px;
       }
     }
   }

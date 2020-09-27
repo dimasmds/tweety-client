@@ -1,0 +1,21 @@
+:host([block]) {
+  display: block;
+}
+
+:host([inline-block]) {
+  display: inline-block;
+}
+
+:host([no-decoration]) {
+
+  a {
+    text-decoration: none;
+  }
+}
+
+:host([center]) {
+  a {
+    display: block;
+    text-align: center;
+  }
+}

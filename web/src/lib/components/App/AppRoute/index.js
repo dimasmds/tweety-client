@@ -6,7 +6,6 @@ import CommonElement from '../../__base__/CommonElement';
 import routes from '../../../routes';
 
 import '../AppMain';
-import '../AppLink';
 import '../../Auth/LoginPage';
 import '../../Auth/LogoutButton';
 
