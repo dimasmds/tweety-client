@@ -7,6 +7,7 @@ import routes from '../../../routes';
 
 import '../AppMain';
 import '../../Auth/LoginPage';
+import '../../Auth/RegisterPage';
 import '../../Auth/LogoutButton';
 
 class AppRoute extends connect(store)(navigator(router(CommonElement))) {
@@ -73,7 +74,9 @@ class AppRoute extends connect(store)(navigator(router(CommonElement))) {
                 <logout-button>Logout</logout-button>
             </div>
             <h1 route="about">about</h1>
-            <h1 route="register">register</h1>
+            <div route="register">
+                <register-page></register-page>
+            </div>
             <h1 route="not-found">Not Found</h1>
        </app-main>
     `;
