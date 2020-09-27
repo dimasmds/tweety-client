@@ -3,7 +3,7 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import {
   AuthenticationAction, handleGetAuth,
-  handleLogin, handleLogout, removeAuthUserAction,
+  handleLogin, handleLogout, handleRegister, removeAuthUserAction,
   setAuthUserAction,
 } from '../../../../../lib/_authentication/adapters/redux/actions';
 import { EndpointAPI } from '../../../../../lib/config';
@@ -76,6 +76,26 @@ describe('Authentication Action', () => {
     const store = mockStore('fakeUserId');
     // @ts-ignore
     await store.dispatch(handleLogout());
+    expect(store.getActions()).toEqual(expectedActions);
+  });
+
+  it('should handle correctly when user has registered', async () => {
+    fetchMock.postOnce(EndpointAPI.registerUser, { userId: 'fakeUserId' });
+
+    const expectedActions = [
+      { type: LoadingAction.LOADING },
+      { type: AuthenticationAction.SET_AUTH, id: 'fakeUserId' },
+      { type: LoadingAction.READY },
+    ];
+
+    const store = mockStore(null);
+    // @ts-ignore
+    await store.dispatch(handleRegister({
+      name: 'fakeName',
+      username: 'fakeUsername',
+      password: 'fakePassword',
+    }));
+
     expect(store.getActions()).toEqual(expectedActions);
   });
 });
