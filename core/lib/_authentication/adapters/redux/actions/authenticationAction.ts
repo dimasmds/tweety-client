@@ -8,6 +8,7 @@ import {
 } from '../../../useCases';
 import { Authentication, RegisterUser } from '../../../entities';
 import { handleAddError } from '../../../../_shared/error/adapters/redux';
+import { handleSetToast } from '../../../../_shared/toast/adapters/redux';
 
 export const AuthenticationAction = {
   SET_AUTH: 'SET_AUTH',
@@ -70,6 +71,10 @@ export const handleRegister = (registerUser: RegisterUser) => async (dispatch: a
   try {
     const userId: string = await interactor.register(registerUser);
     dispatch(setAuthUserAction(userId));
+    dispatch(handleSetToast({
+      title: 'Welcome 👋',
+      message: 'Hai! Welcome to tweety. Enjoy!',
+    }));
   } catch (error) {
     dispatch(handleAddError({
       userMessage: error.message || 'Failed to Register, try again!',
