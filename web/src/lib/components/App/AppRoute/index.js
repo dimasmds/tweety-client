@@ -68,6 +68,10 @@ class AppRoute extends connect(store)(navigator(router(CommonElement))) {
       store.dispatch(handleLoggedUser(this._auth));
     }
 
+    if (this.route === 'register') {
+      return html`<register-page></register-page>`;
+    }
+
     return this._renderAppMain();
   }
 
@@ -86,9 +90,6 @@ class AppRoute extends connect(store)(navigator(router(CommonElement))) {
                 <timeline-page></timeline-page>
             </div>
             <h1 route="user">user</h1>
-            <div route="register">
-                <register-page></register-page>
-            </div>
             <h1 route="not-found">Not Found</h1>
        </app-main>
     `;
