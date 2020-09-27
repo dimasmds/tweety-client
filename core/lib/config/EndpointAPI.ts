@@ -5,4 +5,5 @@ export const EndpointAPI = {
   getAllUsers: `${BASE_URL}/users`,
   logIn: `${BASE_URL}/user/login`,
   registerUser: `${BASE_URL}/user/add`,
+  getUserById: (userId: string) => `${BASE_URL}/user/${userId}`,
 };

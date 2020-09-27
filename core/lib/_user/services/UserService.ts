@@ -3,13 +3,14 @@ import { User } from '../entities';
 import { EndpointAPI } from '../../config';
 
 export class UserService implements UserGetterService {
-  async getAllUsers(): Promise<Array<User>> {
-    try {
-      const response = await fetch(EndpointAPI.getAllUsers);
-      const { users } = await response.json();
-      return users;
-    } catch (error) {
-      throw new Error(error);
+  async getUserById(userId: string): Promise<User> {
+    const response = await fetch(EndpointAPI.getUserById(userId));
+    const { user } = await response.json();
+
+    if (!user) {
+      throw new Error('User not found');
     }
+
+    return user;
   }
 }
