@@ -5,6 +5,7 @@ import style from './style.scss';
 
 import '../../Generic/AppBar';
 import '../TweetInput';
+import '../../Tweet/TweetContainer';
 
 class TimelinePage extends CommonElement {
   static get styles() {
@@ -34,7 +35,8 @@ class TimelinePage extends CommonElement {
                 <div class="timeline-content__head">
                 <tweet-input></tweet-input>  
             </div>
-            </div>      
+            <tweet-container></tweet-container>      
+            </div>
         </div>
         </div>
       </main>
