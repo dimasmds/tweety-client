@@ -11,6 +11,7 @@ import {
 import { mockedTweets, mockNewTweet } from '../../../__mocks__/tweet';
 import { EndpointAPI } from '../../../../../lib/config';
 import { LoadingAction } from '../../../../../lib/_shared/loading/adapters/redux';
+import { ToastActions } from '../../../../../lib/_shared/toast/adapters/redux';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -68,6 +69,10 @@ describe('Tweet Action', () => {
       {
         type: TweetAction.ADD_TWEETS,
         newTweet: mockNewTweet,
+      },
+      {
+        type: ToastActions.SET_TOAST,
+        toastPayload: { title: 'Tweet Added!', message: '' },
       },
       {
         type: LoadingAction.READY,

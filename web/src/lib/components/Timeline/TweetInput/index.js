@@ -1,6 +1,6 @@
 import { html } from 'lit-html';
 import { connect } from 'pwa-helpers';
-import { store } from 'tweet-client-core/lib';
+import { handleAddTweet, store } from 'tweet-client-core/lib';
 import CommonElement from '../../__base__/CommonElement';
 
 import style from './style.scss';
@@ -35,6 +35,15 @@ class TweetInput extends connect(store)(CommonElement) {
     this._tweet = value;
   }
 
+  _onTweetSubmitClickHandler() {
+    const { auth } = store.getState();
+
+    store.dispatch(handleAddTweet({
+      tweet: this._tweet,
+      author: auth,
+    }));
+  }
+
   render() {
     const { avatarUrl, name } = this._user;
     return html`
@@ -43,7 +52,7 @@ class TweetInput extends connect(store)(CommonElement) {
             <img class="tweet-input__avatar" src="${avatarUrl === '' ? './images/icons/user.svg' : avatarUrl}" alt="${name}">
             <textarea @keyup="${this._onTweetInput}" class="tweet-input__input" placeholder="What's happening?"></textarea>
         </div>
-        <button class="tweet-input__submit">Send Tweet</button>
+        <button @click="${this._onTweetSubmitClickHandler}" class="tweet-input__submit">Send Tweet</button>
       </div>
     `;
   }

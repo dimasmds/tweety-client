@@ -3,6 +3,8 @@ import { TweetService } from '../../../services';
 import { NewTweet, Tweet } from '../../../entities';
 import { TweetAddingServiceInteractor } from '../../../useCase/TweetAddingServiceInteractor';
 import { setLoadingAction, setReadyAction } from '../../../../_shared/loading/adapters/redux';
+import { handleSetToast } from '../../../../_shared/toast/adapters/redux';
+import { handleAddError } from '../../../../_shared/error/adapters/redux';
 
 const TweetAction = {
   RECEIVE_TWEETS: 'RECEIVE_TWEETS',
@@ -37,11 +39,21 @@ const handleAddTweet = (newTweet: NewTweet) => async (dispatch: any) => {
   const services = new TweetService();
   const interactor = new TweetAddingServiceInteractor(services);
 
-  const status = await interactor.addNewTweet(newTweet);
-  if (status !== 200) {
-    return;
+  try {
+    const message = await interactor.addNewTweet(newTweet);
+    dispatch(addNewTweetAction(newTweet));
+    dispatch(handleSetToast({
+      title: message,
+      message: '',
+    }));
+  } catch (error) {
+    dispatch(handleAddError({
+      userMessage: error.message || 'Failed to add tweet, try again!',
+      originalMessage: error.message,
+      date: new Date().toISOString(),
+    }));
   }
-  dispatch(addNewTweetAction(newTweet));
+
   dispatch(setReadyAction());
 };
 
