@@ -28,8 +28,10 @@ export class TweetService implements TweetGetterService, TweetAddingService {
     const { status } = response;
 
     if (status !== 200) {
-      throw new Error('Something went wrong');
+      const { message } = await response.json();
+      throw new Error(message);
     }
+
     const { message } = await response.json();
     return message;
   }
