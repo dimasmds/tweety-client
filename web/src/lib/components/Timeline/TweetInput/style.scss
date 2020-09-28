@@ -1,0 +1,44 @@
+:host {
+  display: block;
+}
+
+.tweet-input {
+  padding: 16px;
+
+  .tweet-input__header {
+
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 16px;
+
+    .tweet-input__avatar {
+
+      width: 40px;
+      height: 40px;
+    }
+
+    .tweet-input__input {
+      border: 0;
+      font-size: 16px;
+      resize: none;
+      overflow: hidden;
+      min-height: 40px;
+    }
+
+    .tweet-input__input:focus {
+      outline: none;
+    }
+
+  }
+
+  .tweet-input__submit {
+    padding: 8px;
+    margin-top: 20px;
+    width: 100%;
+    color: white;
+    border: 0;
+    border-radius: 5px;
+    font-weight: bold;
+    background-color: #1d5880;
+  }
+}

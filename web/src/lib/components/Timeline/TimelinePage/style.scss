@@ -3,6 +3,26 @@
 }
 
 .timeline-page {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
   width: 100%;
-  background-color: #177ab3;
+
+  .wrapper {
+    flex: 1;
+    display: flex;
+    width: 100%;
+    padding: 0 16px;
+    max-width: 800px;
+    margin: 0 auto;
+
+    .timeline-content {
+      flex: 1;
+      border-left: 1px solid #cacaca;
+      border-right: 1px solid #cacaca;
+
+      .timeline-content__head {
+      }
+    }
+  }
 }

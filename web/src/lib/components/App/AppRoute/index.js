@@ -87,9 +87,7 @@ class AppRoute extends connect(store)(navigator(router(CommonElement))) {
     store.dispatch(handleLoggedUser(this._auth));
     return html`
        <app-main active-route="${this.route}">
-            <div route="timeline">
-                <timeline-page></timeline-page>
-            </div>
+            <timeline-page route="timeline"></timeline-page>
             <h1 route="user">user</h1>
             <h1 route="not-found">Not Found</h1>
        </app-main>
