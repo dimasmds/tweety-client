@@ -18,11 +18,6 @@ const receiveTweetsAction = (tweets: Array<Tweet>) => ({
   tweets,
 });
 
-const addNewTweetAction = (newTweet: NewTweet) => ({
-  type: TweetAction.ADD_TWEETS,
-  newTweet,
-});
-
 const handleInitialTweets = () => async (dispatch: any) => {
   dispatch(setLoadingAction());
   const services = new TweetService();
@@ -40,11 +35,11 @@ const handleAddTweet = (newTweet: NewTweet) => async (dispatch: any) => {
 
   try {
     const message = await interactor.addNewTweet(newTweet);
-    dispatch(addNewTweetAction(newTweet));
     dispatch(handleSetToast({
       title: message,
       message: '',
     }));
+    dispatch(handleInitialTweets());
   } catch (error) {
     dispatch(handleAddError({
       userMessage: error.message || 'Failed to add tweet, try again!',
@@ -57,5 +52,5 @@ const handleAddTweet = (newTweet: NewTweet) => async (dispatch: any) => {
 };
 
 export {
-  TweetAction, receiveTweetsAction, handleInitialTweets, addNewTweetAction, handleAddTweet,
+  TweetAction, receiveTweetsAction, handleInitialTweets, handleAddTweet,
 };

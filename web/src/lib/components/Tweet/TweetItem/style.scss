@@ -1,3 +1,60 @@
 :host {
   display: block;
 }
+
+.tweet-item {
+  padding: 16px;
+
+  .tweet-item__content {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 8px;
+
+    .tweet-item__content__right {
+
+      .tweet-item__user-content {
+
+        .tweet-item__name {
+          display: block;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+        }
+
+        .tweet-item__username {
+          display: block;
+          color: #a0a0a0;
+        }
+
+        .reply-to {
+          margin: 5px 0;
+          display: block;
+          font-size: 12px;
+        }
+      }
+
+      .tweet-item__tweet {
+        margin: 10px 0;
+      }
+    }
+  }
+
+  .tweet-item__action-button {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    .tweet-item__action {
+      background-color: transparent;
+      border: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+
+      img {
+        margin-right: 8px;
+      }
+    }
+  }
+}
