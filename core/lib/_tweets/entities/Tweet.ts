@@ -1,8 +1,10 @@
+import { Author } from './Author';
+
 export interface Tweet {
   id: string
   tweet: string
   date: string
-  author: string
+  author: Author
   retweets?: Array<string>
   likes?: Array<string>
   isDeleted: boolean,
