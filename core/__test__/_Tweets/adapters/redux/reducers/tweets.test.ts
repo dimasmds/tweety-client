@@ -1,6 +1,6 @@
 import { tweetsReducers } from '../../../../../lib/_Tweets/adapters/redux/reducers';
 import { TweetAction } from '../../../../../lib/_Tweets/adapters/redux/actions';
-import { mockedTweets, mockNewTweet } from '../../../__mocks__/tweet';
+import { mockedTweets } from '../../../__mocks__/tweet';
 
 describe('Tweets Reducer', () => {
   it('should return the initial state', () => {
