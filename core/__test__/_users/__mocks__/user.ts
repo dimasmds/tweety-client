@@ -1,6 +1,6 @@
-import { User } from '../../../lib/_User/entities';
+import { LoggedUser } from '../../../lib/_LoggedUser/entities';
 
-export const mockedUsers: Array<User> = [
+export const mockedUsers: Array<LoggedUser> = [
   {
     id: 'usr-nbw2s2nkks9wmmw2kk',
     username: 'dimasmds',
@@ -15,7 +15,7 @@ export const mockedUsers: Array<User> = [
   },
 ];
 
-export const mockedUser: User = {
+export const mockedUser: LoggedUser = {
   id: 'usr-nbw2s2nkks9wmmw2kk',
   username: 'dimasmds',
   name: 'Dimas Maulana Dwi Saputra',

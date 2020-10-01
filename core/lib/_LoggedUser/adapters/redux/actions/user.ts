@@ -1,4 +1,4 @@
-import { User } from '../../../entities';
+import { LoggedUser } from '../../../entities';
 import { setLoadingAction, setReadyAction } from '../../../../_Shared/loading/adapters/redux';
 import { UserService } from '../../../services';
 import { UserGetterServiceInteractor } from '../../../useCase';
@@ -8,7 +8,7 @@ export const UserAction = {
   RECEIVE_USER: 'RECEIVE_USER',
 };
 
-export const receiveUsersAction = (user: User) => ({
+export const receiveUsersAction = (user: LoggedUser) => ({
   type: UserAction.RECEIVE_USER,
   user,
 });

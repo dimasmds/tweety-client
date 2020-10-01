@@ -1,7 +1,7 @@
-import { User } from '../entities';
+import { LoggedUser } from '../entities';
 
 export interface UserGetterService {
-  getUserById: (userId: string) => Promise<User>
+  getUserById: (userId: string) => Promise<LoggedUser>
 }
 
 export class UserGetterServiceInteractor {
@@ -11,7 +11,7 @@ export class UserGetterServiceInteractor {
     this._getterService = getterService;
   }
 
-  getUserById(userId: string): Promise<User> {
+  getUserById(userId: string): Promise<LoggedUser> {
     return this._getterService.getUserById(userId);
   }
 }

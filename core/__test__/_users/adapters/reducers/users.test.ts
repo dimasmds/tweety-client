@@ -1,4 +1,4 @@
-import { userReducer } from '../../../../lib/_User/adapters/redux/reducers';
+import { userReducer } from '../../../../lib/_LoggedUser/adapters/redux/reducers';
 import { mockedUser } from '../../__mocks__/user';
 
 describe('Users Reducers', () => {

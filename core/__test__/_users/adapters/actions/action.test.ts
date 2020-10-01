@@ -5,7 +5,7 @@ import { mockedUser } from '../../__mocks__/user';
 import {
   handleLoggedUser,
   receiveUsersAction,
-} from '../../../../lib/_User/adapters/redux/actions';
+} from '../../../../lib/_LoggedUser/adapters/redux/actions';
 import { EndpointAPI } from '../../../../lib/config';
 import { LoadingAction } from '../../../../lib/_Shared/loading/adapters/redux';
 

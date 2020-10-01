@@ -1,4 +1,4 @@
-export interface User {
+export interface LoggedUser {
   id: string
   username: string
   name: string

@@ -1,9 +1,9 @@
 import { UserGetterService } from '../useCase';
-import { User } from '../entities';
+import { LoggedUser } from '../entities';
 import { EndpointAPI } from '../../config';
 
 export class UserService implements UserGetterService {
-  async getUserById(userId: string): Promise<User> {
+  async getUserById(userId: string): Promise<LoggedUser> {
     const response = await fetch(EndpointAPI.getUserById(userId));
     const { user } = await response.json();
 
