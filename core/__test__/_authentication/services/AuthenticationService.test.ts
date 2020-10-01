@@ -1,7 +1,7 @@
 import fetchMock from 'fetch-mock';
 import mockAsyncStorage from '@react-native-community/async-storage/jest/async-storage-mock';
 import AsyncStorage from '@react-native-community/async-storage';
-import { AuthenticationService } from '../../../lib/_authentication/services';
+import { AuthenticationService } from '../../../lib/_Authentication/services';
 import { EndpointAPI } from '../../../lib/config';
 
 jest.mock('@react-native-community/async-storage', () => mockAsyncStorage);

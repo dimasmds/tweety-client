@@ -1,10 +1,9 @@
-import { TweetGetterServiceInteractor } from '../../../useCase';
+import { TweetGetterServiceInteractor, TweetAddingServiceInteractor } from '../../../useCase';
 import { TweetService } from '../../../services';
 import { NewTweet, Tweet } from '../../../entities';
-import { TweetAddingServiceInteractor } from '../../../useCase/TweetAddingServiceInteractor';
-import { setLoadingAction, setReadyAction } from '../../../../_shared/loading/adapters/redux';
-import { handleSetToast } from '../../../../_shared/toast/adapters/redux';
-import { handleAddError } from '../../../../_shared/error/adapters/redux';
+import { setLoadingAction, setReadyAction } from '../../../../_Shared/loading/adapters/redux';
+import { handleSetToast } from '../../../../_Shared/toast/adapters/redux';
+import { handleAddError } from '../../../../_Shared/error/adapters/redux';
 
 const TweetAction = {
   RECEIVE_TWEETS: 'RECEIVE_TWEETS',

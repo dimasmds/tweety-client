@@ -1,5 +1,5 @@
-import { AuthenticationAction } from '../../../../../lib/_authentication/adapters/redux/actions';
-import { authReducer } from '../../../../../lib/_authentication/adapters/redux/reducers';
+import { AuthenticationAction } from '../../../../../lib/_Authentication/adapters/redux/actions';
+import { authReducer } from '../../../../../lib/_Authentication/adapters/redux/reducers';
 
 describe('Auth Reducer', () => {
   it('should return have default value when not set', () => {

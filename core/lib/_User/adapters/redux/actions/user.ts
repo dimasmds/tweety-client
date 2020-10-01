@@ -1,8 +1,8 @@
 import { User } from '../../../entities';
-import { setLoadingAction, setReadyAction } from '../../../../_shared/loading/adapters/redux';
+import { setLoadingAction, setReadyAction } from '../../../../_Shared/loading/adapters/redux';
 import { UserService } from '../../../services';
 import { UserGetterServiceInteractor } from '../../../useCase';
-import { handleAddError } from '../../../../_shared/error/adapters/redux';
+import { handleAddError } from '../../../../_Shared/error/adapters/redux';
 
 export const UserAction = {
   RECEIVE_USER: 'RECEIVE_USER',

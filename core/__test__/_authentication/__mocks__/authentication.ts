@@ -1,4 +1,4 @@
-import { Authentication } from '../../../lib/_authentication/entities';
+import { Authentication } from '../../../lib/_Authentication/entities';
 
 export const mockedAuthentication: Authentication = {
   success: true,

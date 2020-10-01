@@ -5,12 +5,12 @@ import {
   AuthenticationAction, handleGetAuth,
   handleLogin, handleLogout, handleRegister, removeAuthUserAction,
   setAuthUserAction,
-} from '../../../../../lib/_authentication/adapters/redux/actions';
+} from '../../../../../lib/_Authentication/adapters/redux/actions';
 import { EndpointAPI } from '../../../../../lib/config';
 import { mockedAuthentication } from '../../../__mocks__/authentication';
-import { LoadingAction } from '../../../../../lib/_shared/loading/adapters/redux';
-import { AuthenticationService } from '../../../../../lib/_authentication/services';
-import { ToastActions } from '../../../../../lib/_shared/toast/adapters/redux';
+import { LoadingAction } from '../../../../../lib/_Shared/loading/adapters/redux';
+import { AuthenticationService } from '../../../../../lib/_Authentication/services';
+import { ToastActions } from '../../../../../lib/_Shared/toast/adapters/redux';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);

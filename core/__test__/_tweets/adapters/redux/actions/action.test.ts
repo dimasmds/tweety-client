@@ -1,17 +1,17 @@
 import configureMockStore from 'redux-mock-store';
 import fetchMock from 'fetch-mock';
 import thunk from 'redux-thunk';
-import { Tweet } from '../../../../../lib/_tweets/entities';
+import { Tweet } from '../../../../../lib/_Tweets/entities';
 import {
   addNewTweetAction, handleAddTweet,
   handleInitialTweets,
   receiveTweetsAction,
   TweetAction,
-} from '../../../../../lib/_tweets/adapters/redux/actions';
+} from '../../../../../lib/_Tweets/adapters/redux/actions';
 import { mockedTweets, mockNewTweet } from '../../../__mocks__/tweet';
 import { EndpointAPI } from '../../../../../lib/config';
-import { LoadingAction } from '../../../../../lib/_shared/loading/adapters/redux';
-import { ToastActions } from '../../../../../lib/_shared/toast/adapters/redux';
+import { LoadingAction } from '../../../../../lib/_Shared/loading/adapters/redux';
+import { ToastActions } from '../../../../../lib/_Shared/toast/adapters/redux';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -28,7 +28,7 @@ describe('Tweet Action', () => {
     expect(receiveTweetsAction(tweets)).toEqual(expectedAction);
   });
 
-  it('should create RECEIVE_TWEETS when fetching _tweets has been done', async () => {
+  it('should create RECEIVE_TWEETS when fetching _Tweets has been done', async () => {
     fetchMock.getOnce(EndpointAPI.getAllTweets, {
       body: { tweets: mockedTweets },
     });

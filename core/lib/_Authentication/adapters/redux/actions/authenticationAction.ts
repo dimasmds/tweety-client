@@ -1,4 +1,4 @@
-import { setLoadingAction, setReadyAction } from '../../../../_shared/loading/adapters/redux';
+import { setLoadingAction, setReadyAction } from '../../../../_Shared/loading/adapters/redux';
 import { AuthenticationService } from '../../../services';
 import {
   GetAuthServiceInteractor,
@@ -7,8 +7,8 @@ import {
   RegisterAuthServiceInteractor,
 } from '../../../useCases';
 import { Authentication, RegisterUser } from '../../../entities';
-import { handleAddError } from '../../../../_shared/error/adapters/redux';
-import { handleSetToast } from '../../../../_shared/toast/adapters/redux';
+import { handleAddError } from '../../../../_Shared/error/adapters/redux';
+import { handleSetToast } from '../../../../_Shared/toast/adapters/redux';
 
 export const AuthenticationAction = {
   SET_AUTH: 'SET_AUTH',

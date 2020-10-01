@@ -5,9 +5,9 @@ import { mockedUser } from '../../__mocks__/user';
 import {
   handleLoggedUser,
   receiveUsersAction,
-} from '../../../../lib/_user/adapters/redux/actions';
+} from '../../../../lib/_User/adapters/redux/actions';
 import { EndpointAPI } from '../../../../lib/config';
-import { LoadingAction } from '../../../../lib/_shared/loading/adapters/redux';
+import { LoadingAction } from '../../../../lib/_Shared/loading/adapters/redux';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
