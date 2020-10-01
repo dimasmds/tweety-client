@@ -52,7 +52,7 @@ describe('Tweet Action', () => {
 
     fetchMock.getOnce(EndpointAPI.getAllTweets, {
       body: { tweets: mockedTweets },
-    });
+    }, { overwriteRoutes: true });
 
     const expectedActions = [
       {

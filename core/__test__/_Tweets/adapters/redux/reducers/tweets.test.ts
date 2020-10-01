@@ -14,12 +14,4 @@ describe('Tweets Reducer', () => {
     }))
       .toEqual(mockedTweets);
   });
-
-  it('should handle ADD_TWEET correctly', () => {
-    expect(tweetsReducers([], {
-      type: TweetAction.ADD_TWEETS,
-      newTweet: mockNewTweet,
-    }))
-      .toEqual([{ ...mockNewTweet }]);
-  });
 });
