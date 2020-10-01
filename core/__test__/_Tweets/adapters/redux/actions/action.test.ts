@@ -3,7 +3,7 @@ import fetchMock from 'fetch-mock';
 import thunk from 'redux-thunk';
 import { Tweet } from '../../../../../lib/_Tweets/entities';
 import {
-  addNewTweetAction, handleAddTweet,
+  handleAddTweet,
   handleInitialTweets,
   receiveTweetsAction,
   TweetAction,
@@ -45,21 +45,13 @@ describe('Tweet Action', () => {
     expect(store.getActions()).toEqual(expectedActions);
   });
 
-  it('should create an action to add tweet correctly', () => {
-    const newTweet = mockNewTweet;
-
-    const expectedAction = {
-      type: TweetAction.ADD_TWEETS,
-      newTweet,
-    };
-
-    expect(addNewTweetAction(newTweet))
-      .toEqual(expectedAction);
-  });
-
-  it('should create ADD_TWEETS when adding has been done', async () => {
+  it('should create action correctly when adding has been done', async () => {
     fetchMock.postOnce(EndpointAPI.addNewTweet, {
       body: { message: 'Tweet Added!' },
+    });
+
+    fetchMock.getOnce(EndpointAPI.getAllTweets, {
+      body: { tweets: mockedTweets },
     });
 
     const expectedActions = [
@@ -67,12 +59,11 @@ describe('Tweet Action', () => {
         type: LoadingAction.LOADING,
       },
       {
-        type: TweetAction.ADD_TWEETS,
-        newTweet: mockNewTweet,
-      },
-      {
         type: ToastActions.SET_TOAST,
         toastPayload: { title: 'Tweet Added!', message: '' },
+      },
+      {
+        type: LoadingAction.LOADING,
       },
       {
         type: LoadingAction.READY,
